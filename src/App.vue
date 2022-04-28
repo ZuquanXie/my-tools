@@ -1,21 +1,52 @@
 <script setup lang="ts">
-// This starter template is using Vue 3 <script setup> SFCs
-// Check out https://vuejs.org/api/sfc-script-setup.html#script-setup
-import HelloWorld from './components/HelloWorld.vue'
+import { menus } from "@/views/menus";
+import { useRoute } from "vue-router";
+const route = useRoute();
 </script>
 
 <template>
-  <img alt="Vue logo" src="./assets/logo.png" />
-  <HelloWorld msg="Hello Vue 3 + TypeScript + Vite" />
+  <el-container id="appMain">
+    <el-aside>
+      <el-scrollbar>
+        <el-menu router :default-active="route.fullPath">
+          <el-menu-item
+            v-for="menu in menus"
+            :key="menu.index"
+            :index="menu.index"
+          >
+            <el-icon>
+              <component :is="menu.icon"></component>
+            </el-icon>
+            <span>{{ menu.title }}</span>
+          </el-menu-item>
+        </el-menu>
+      </el-scrollbar>
+    </el-aside>
+    <el-container>
+      <el-main>
+        <el-scrollbar>
+          <router-view />
+        </el-scrollbar>
+      </el-main>
+    </el-container>
+  </el-container>
 </template>
 
-<style>
+<style lang="less">
+html,
+body,
+#app,
+#appMain {
+  height: 100%;
+}
+body {
+  height: 100%;
+  margin: 0;
+}
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
 }
 </style>
