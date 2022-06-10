@@ -1,5 +1,5 @@
 import { RouteLocationRaw, RouteComponent } from "vue-router";
-import { Switch } from "@element-plus/icons-vue";
+import { Switch, Baseball } from "@element-plus/icons-vue";
 
 type Menu = {
   index: string;
@@ -17,5 +17,33 @@ export const menus: Menu[] = [
     title: "Transformer",
     icon: Switch,
     component: () => import("@/views/Transformer/index.vue"),
+  },
+  {
+    index: "/learningPinia",
+    route: { path: "/learningPinia" },
+    title: "LearningPinia",
+    icon: Baseball,
+    component: () => import("@/views/learningPinia/LearningPinia.vue"),
+  },
+  {
+    index: "/pitch",
+    route: { path: "/pitch" },
+    title: "Pitch",
+    icon: Baseball,
+    component: () => import("@/views/pitch/PitchPanel.vue"),
+  },
+  {
+    index: "/canvas/drawText",
+    route: { path: "/canvas/drawText" },
+    title: "CanvasDrawText",
+    icon: Baseball,
+    component: () => import("@/views/canvas/DrawText.vue"),
+  },
+  {
+    index: "/svg/drawText",
+    route: { path: "/svg/drawText" },
+    title: "SvgDrawText",
+    icon: Baseball,
+    component: () => import("@/views/svg/DrawText.vue"),
   },
 ];

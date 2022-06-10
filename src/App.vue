@@ -25,7 +25,11 @@ const route = useRoute();
     <el-container>
       <el-main>
         <el-scrollbar>
-          <router-view />
+          <router-view v-slot="{ Component }">
+            <keep-alive :include="['AnotherComponent']">
+              <component :is="Component"></component>
+            </keep-alive>
+          </router-view>
         </el-scrollbar>
       </el-main>
     </el-container>
