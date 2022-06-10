@@ -40,6 +40,13 @@ export const menus: Menu[] = [
     component: () => import("@/views/canvas/DrawText.vue"),
   },
   {
+    index: "/canvas/movement",
+    route: { path: "/canvas/movement" },
+    title: "CanvasMovement",
+    icon: Baseball,
+    component: () => import("@/views/canvas/Movement.vue"),
+  },
+  {
     index: "/svg/drawText",
     route: { path: "/svg/drawText" },
     title: "SvgDrawText",
